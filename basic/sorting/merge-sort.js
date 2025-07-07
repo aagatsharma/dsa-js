@@ -33,11 +33,12 @@ function merge(array, s, m, e) {
 }
 
 function mergeSort(array, s, e) {
-  if (s >= e) return;
-  let m = Math.floor((s + e) / 2);
-  mergeSort(array, s, m);
-  mergeSort(array, m + 1, e);
-  merge(array, s, m, e);
+  if (s < e) {
+    let m = Math.floor((s + e) / 2);
+    mergeSort(array, s, m);
+    mergeSort(array, m + 1, e);
+    merge(array, s, m, e);
+  }
   return array;
 }
 
